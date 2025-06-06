@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JusAI</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-black shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <a href="#" class="text-2xl font-bold text-white">JusAI</a>
+            
+            
+            <div class="hidden md:flex items-center w-full">
+                <div class="flex-1">
+                </div>
+
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">Practice Area</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">About Us</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-300">Privacy Policy</a>
+                </div>
+
+                <div class="flex-1 flex justify-end">
+                    <a href="#" class="bg-white text-black px-4 py-2 rounded-md hover:bg-gray-200 transition duration-300 shadow">Login</a>
+                </div>
+            </div>
+
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-gray-700">
+            <a href="#" class="block px-6 py-3 text-gray-300 hover:bg-gray-900 hover:text-white">Home</a>
+            <a href="#" class="block px-6 py-3 text-gray-300 hover:bg-gray-900 hover:text-white">Practice Area</a>
+            <a href="#" class="block px-6 py-3 text-gray-300 hover:bg-gray-900 hover:text-white">About Us</a>
+            <a href="#" class="block mx-4 my-3 bg-white text-black text-center px-4 py-2 rounded-md hover:bg-gray-200 shadow">Login</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="max-w-4xl mx-auto bg-black bg-opacity-20 p-8 rounded-xl shadow-lg">
+            <h1 class="text-3xl font-bold mb-2 text-gray-X text-white ">Incident Report Form</h1>
+            <p class="text-gray-X text-white mb-8">Please provide a detailed account of the incident. All information will be kept confidential.</p>
+            
+            <form id="incident-form" action="#" method="POST">
+                
+                <fieldset class="border-t border-slate-200 pt-6 mb-8">
+                    <legend class="text-lg font-semibold text-gray-X text-white mb-4">1. Incident Timing & Location</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="incident-datetime" class="block text-sm font-medium text-gray-X text-white mb-1">Date and Time of the Incident</label>
+                            <input type="datetime-local" id="incident-datetime" name="incident_datetime" class="w-full bg-transparent text-gray-X text-white p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required>
+                            <p class="text-xs text-gray-X text-white mt-1">Exact or approximate date and time.</p>
+                        </div>
+                        <div>
+                            <label for="place" class="block text-sm font-medium text-gray-X text-white mb-1">Place of Occurrence</label>
+                            <input type="text" id="place" name="place" placeholder="e.g., 123 Main St, Near Dubai Park" class="w-full bg-transparent text-gray-X text-white p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required>
+                            <p class="text-xs text-gray-X text-white mt-1">Exact location (address or identifiable landmark).</p>
+                        </div>
+                        <div>
+                            <label for="district" class="block text-sm font-medium text-gray-X text-white mb-1">District & Police Jurisdiction</label>
+                            <input type="text" id="district" name="district" placeholder="e.g., Central District, Downtown Precinct" class="w-full bg-transparent  p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="border-t border-slate-200 pt-6 mb-8">
+                    <legend class="text-lg font-semibold text-gray-X text-white mb-4">2. Details of the Offence</legend>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="offence-type" class="block text-sm font-medium text-gray-X text-white mb-1">Type of Offence</label>
+                            <input type="text" id="offence-type" name="offence_type" placeholder="e.g., Theft, Assault, Vandalism" class="w-full bg-transparent p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required>
+                        </div>
+                        <div>
+                            <label for="weapons" class="block text-sm font-medium text-gray-X text-white mb-1">Weapons or Tools Used (if any)</label>
+                            <input type="text" id="weapons" name="weapons" placeholder="e.g., Knife, blunt object, none" class="w-full bg-transparent p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="offence-description" class="block text-sm font-medium text-gray-X text-white mb-1">Detailed Description of What Happened</label>
+                        <textarea id="offence-description" name="offence_description" rows="5" class="w-full bg-transparent p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Describe the sequence of events clearly..." required></textarea>
+                    </div>
+                    <div class="mb-6">
+                        <label for="offence-manner" class="block text-sm font-medium text-gray-X text-white mb-1">Manner in which the Offence was Committed</label>
+                        <textarea id="offence-manner" name="offence_manner" rows="3" class="w-full bg-transparent p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Describe the methods used by the perpetrator(s)..."></textarea>
+                    </div>
+                    <div>
+                        <label for="threats" class="block text-sm font-medium text-gray-X text-white mb-1">Threats or Coercion Involved</label>
+                        <textarea id="threats" name="threats" rows="3" class="w-full bg-transparent p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Were there any verbal threats or acts of intimidation?"></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset class="border-t border-slate-200 pt-6 mb-8">
+                     <legend class="text-lg font-semibold text-gray-X text-white mb-4">3. Supporting Information</legend>
+                    <div class="mb-6">
+                        <label for="evidence" class="block text-sm font-medium text-gray-X text-white mb-1">Evidence (if any)</label>
+                        <textarea id="evidence" name="evidence" rows="3" class="w-full bg-transparent p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="List any physical evidence, documents, photos, CCTV footage references, or digital proof."></textarea>
+                    </div>
+                     <div class="mb-6">
+                        <label for="motive" class="block text-sm font-medium text-gray-X text-white mb-1">Motive (if known or suspected)</label>
+                        <textarea id="motive" name="motive" rows="3" class="w-full bg-transparent p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Describe any known reason for the crime (e.g., personal enmity, financial dispute)."></textarea>
+                    </div>
+                     <div>
+                        <label for="previous-incidents" class="block text-sm font-medium text-gray-X text-white mb-1">Previous Complaints or Incidents (if any)</label>
+                        <textarea id="previous-incidents" name="previous_incidents" rows="3" class="w-full bg-transparent p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Mention any related prior events that may have led to the current offence."></textarea>
+                    </div>
+                </fieldset>
+                
+                <fieldset class="border-t border-slate-200 pt-6 mb-8">
+                     <legend class="text-lg font-semibold text-gray-X text-white mb-4">4. Detailed Summary</legend>
+                    <div>
+                        <label for="summary" class="block text-sm font-medium text-gray-X text-white mb-1">Comprehensive Summary</label>
+                        <textarea id="summary" name="summary" rows="6" class="w-full bg-transparent p-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Provide a detailed summary that helps in deciding the gravity of the complaint and assigning appropriate relevant IPC sections." required></textarea>
+                    </div>
+                </fieldset>
+
+                
+                <div class="flex justify-end">
+                    <button type="submit" class=" text-white font-semibold px-8 py-3 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-300 shadow-md">
+                        Submit Report
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    
+    <div class="fixed bottom-5 right-5 z-50">
+        
+        <div id="chat-popup" class="hidden absolute bottom-20 right-0 w-80 md:w-96 bg-white rounded-xl shadow-2xl transition-all duration-300 transform translate-y-4 opacity-0">
+            
+            <div class="bg-blue-600 text-white p-4 rounded-t-xl flex justify-between items-center">
+                <h3 class="font-semibold">Chat with Support</h3>
+                <button id="close-chat" class="text-white hover:text-blue-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <div id="chat-messages" class="p-4 h-80 overflow-y-auto bg-slate-50">
+                
+                <div class="flex justify-start mb-3">
+                    <div class="chat-message bg-slate-200 text-slate-800 rounded-lg p-3">
+                        Hi there! How can I help you today?
+                    </div>
+                </div>
+                <div class="flex justify-end mb-3">
+                    <div class="chat-message bg-blue-500 text-white rounded-lg p-3">
+                        I have a question about my case.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-4 border-t border-slate-200">
+                <div class="flex items-center">
+                    <input id="chat-input" type="text" placeholder="Type a message..." class="w-full px-3 py-2 border border-slate-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button id="chat-send" class="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700">Send</button>
+                </div>
+            </div>
+        </div>
+        
+        
+        <button id="chat-icon" class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transform hover:scale-110 transition-all duration-300">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+        </button>
+    </div>
+
+    
+    <footer class="bg-black text-gray-300 mt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">JusAI</h3>
+                    <p class="text-sm">Your Legal Companion</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Home</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Practice Area</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                            <span>123 Legal Avenue, Wakanda City, 110001</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                            <span>contact@jusAI.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                            <span>+91 9994441627</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Stay Updated</h3>
+                    <p class="text-sm mb-3">Subscribe to our newsletter for the latest legal news and updates.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your Email" class="w-full px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-l-md focus:outline-none focus:border-white">
+                        <button class="bg-white text-black px-4 py-2 rounded-r-md hover:bg-gray-200 transition-colors duration-300">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-gray-900 py-4">
+            <div class="container mx-auto px-6 text-center text-sm text-gray-400">
+                &copy; 2025 JusAI. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
